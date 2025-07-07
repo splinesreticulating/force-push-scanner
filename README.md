@@ -10,16 +10,27 @@ This project was created in collaboration with [Sharon Brizinov](https://github.
 
 1. Download the Force Push Commits SQLite DB (`force_push_commits.sqlite3`) via a quick Google Form submission: <https://forms.gle/344GbP6WrJ1fhW2A6>. This lets you search all force push commits for any user/org locally.
 
-2. Install Python deps and trufflehog:
+2. Install Python dependencies:
 
 ```bash
 pip install -r requirements.txt
-pip install trufflehog
 ```
 
-   Note: trufflehog must be installed and available in your PATH as it's used for secret scanning.
+3. Install TruffleHog (v3 or later — required for secret scanning):
 
-3. Scan an org/user for secrets:
+#### macOS (Homebrew):
+```bash
+brew install trufflehog
+```
+
+#### Linux / Other:
+Download the latest binary from the [Releases page](https://github.com/trufflesecurity/trufflehog/releases), or use:
+
+```bash
+go install github.com/trufflesecurity/trufflehog@latest
+```
+
+4. Scan an org/user for secrets:
 
 ```bash
 python force_push_scanner.py <org> --db-file /path/to/force_push_commits.sqlite3 --scan
