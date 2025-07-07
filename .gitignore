@@ -1,8 +1,6 @@
 *.sqlite
 *.sqlite3
-*.sqlite3-shm
-*.sqlite3-wal
 *.db
 *.csv
-*.db-shm
-*.db-wal
+*.*-shm
+*.*-wal
